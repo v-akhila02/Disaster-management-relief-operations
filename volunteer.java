@@ -88,8 +88,8 @@ public class volunteer extends Frame
 		add(second);
 	    
 		setTitle("Volunteer Application");
-		Color clr = new Color(100, 100, 140);
-		setBackground(clr); 
+		/*Color clr = new Color(100, 100, 140);
+		setBackground(clr);*/ 
 		setSize(500, 600);
 		setVisible(true);
 		
