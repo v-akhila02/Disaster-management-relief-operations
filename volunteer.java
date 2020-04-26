@@ -4,8 +4,8 @@ import java.sql.*;
 public class volunteer extends Frame 
 {
 	Button submit;
-	TextField name,area;
-	//TextArea errorText;
+	TextField name,area,phno;
+	TextArea errorText;
 	Connection connection;
 	Statement statement;
 	public volunteer() 
@@ -47,24 +47,24 @@ public class volunteer extends Frame
 			{
 				try 
 				{			  
-				  String query= "INSERT INTO volunteers VALUES(" + name.getText() + ", " + area.getText() + ")";
+				  String query= "INSERT INTO volunteer VALUES(" + name.getText() + ", " + area.getText() +", " + phno.getText() +")";
 				  int i = statement.executeUpdate(query);
-				 // errorText.append("\nInserted " + i + " rows successfully");
+				 errorText.append("\nInserted " + i + " rows successfully");
 				}
 				catch (SQLException insertException) 
 				{
-				 // displaySQLErrors(insertException);
+				  displaySQLErrors(insertException);
 				}
 			}
 		});
 
 		name = new TextField(15);
 		area = new TextField(15);
-		
+		phno = new TextField(15);
 				
 		
-		//errorText = new TextArea(10, 40);
-		//errorText.setEditable(false);
+		errorText = new TextArea(10, 40);
+		errorText.setEditable(false);
 
 		Panel first = new Panel();
 		first.setLayout(new GridLayout(4, 2));
@@ -72,6 +72,8 @@ public class volunteer extends Frame
 		first.add(name);
 		first.add(new Label("ADDRESS:"));
 		first.add(area);
+		first.add(new Label("PHNO:"));
+		first.add(phno);
 		
 		
 		first.setBounds(125,90,200,100);
